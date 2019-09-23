@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.user.musafir">
 
+    <user-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +20,11 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".Register" />
-        <activity android:name=".Ticket"></activity>
+        <activity android:name=".Ticket" />
+        <activity android:name=".VerifyPhoneActivity" />
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".CheckBalance"></activity>
     </application>
 
 </manifest>

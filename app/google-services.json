@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "732616466339",
+    "firebase_url": "https://musafir-a5c39.firebaseio.com",
+    "project_id": "musafir-a5c39",
+    "storage_bucket": "musafir-a5c39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732616466339:android:5aeca9bc60819831260416",
+        "android_client_info": {
+          "package_name": "com.example.user.musafir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732616466339-8g991u0gqn90cgblhp5i348kpcp2m5kl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.user.musafir",
+            "certificate_hash": "e4d65a2767e95694cbe7e50a5b3ad6ec3d8a789d"
+          }
+        },
+        {
+          "client_id": "732616466339-q771kfovkk44dq3lv6jfk0c7gjg05mk7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMvEu0z9IvLHeYrD_d3zp_Tpp7aGhTxkY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732616466339-q771kfovkk44dq3lv6jfk0c7gjg05mk7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

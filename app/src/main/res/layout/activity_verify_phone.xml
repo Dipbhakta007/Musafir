@@ -15,7 +15,7 @@
         android:src="@drawable/logicon"/>
 
     <EditText
-        android:id="@+id/loginMobile"
+        android:id="@+id/verifyCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -23,20 +23,18 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
 
-        android:hint="Enter your phone no."
+        android:hint="Enter the recieved code"
         android:inputType="text"
         android:textSize="22sp" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/verify"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/button_rounded"
-        android:text="Continue"
+        android:text="Verify"
         android:textColor="#ffffff"
         android:textSize="22sp" />
-
-
 
 </LinearLayout>
