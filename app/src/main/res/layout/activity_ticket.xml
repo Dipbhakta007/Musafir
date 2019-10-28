@@ -22,6 +22,21 @@
         android:inputType="text"
         android:textSize="22sp" />
 
+    <TextView
+        android:id="@+id/c"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="10dp"
+
+
+        android:text="Enter starting point"
+        android:inputType="text"
+        android:textSize="22sp" />
+
 
 
    <LinearLayout
@@ -57,6 +72,21 @@
 
 
        </LinearLayout>
+
+    <TextView
+        android:id="@+id/d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="10dp"
+
+
+        android:text="Enter destination point"
+        android:inputType="text"
+        android:textSize="22sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

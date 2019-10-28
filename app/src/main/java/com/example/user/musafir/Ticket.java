@@ -6,10 +6,12 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,6 +21,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import static java.lang.Math.abs;
 
@@ -33,7 +37,7 @@ public class Ticket extends AppCompatActivity {
     private String phonenoFromDB;
     private int fare;
     private int i,j,pass;
-
+    private TextView sourcetext,desttext;
     private String userID;
 
     @Override
@@ -47,6 +51,8 @@ public class Ticket extends AppCompatActivity {
         spinnerSource=(Spinner)findViewById(R.id.spinnerSource);
         spinnerDestination=(Spinner)findViewById(R.id.spinnerDestination);
         buyTicket=(Button)findViewById(R.id.buyTicket);
+        sourcetext=(TextView)findViewById(R.id.a);
+        desttext=(TextView)findViewById(R.id.b);
 
         Intent intent=getIntent();
         userID=intent.getStringExtra("mobile");
@@ -54,6 +60,35 @@ public class Ticket extends AppCompatActivity {
         spinnerSource.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,TicketPoints.points));
 
         spinnerDestination.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,TicketPoints.points));
+
+        spinnerSource.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String s= (String) spinnerSource.getSelectedItem();
+
+                sourcetext.setText(s);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        spinnerDestination.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String d= (String) spinnerDestination.getSelectedItem();
+
+                desttext.setText(d);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         buyTicket.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,20 +102,29 @@ public class Ticket extends AppCompatActivity {
 
                 fare=pass*abs(TicketPoints.fares[i]-TicketPoints.fares[j]);
 
+                String rid=rideID.getText().toString();
+                jatri j=new jatri(userID,pass);
+
+               FirebaseDatabase.getInstance().getReference("Riders").child(rid).child(userID).setValue(j).addOnCompleteListener(new OnCompleteListener<Void>() {
+                   @Override
+                   public void onComplete(@NonNull Task<Void> task) {
+
+                   }
+               });
 
 
-                FirebaseDatabase.getInstance().getReference().addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+                FirebaseDatabase.getInstance().getReference().child("Users").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
-                           for(DataSnapshot ds:dataSnapshot.getChildren()){
-                               balanceFromDB=ds.child(userID).getValue(user.class).getBalance();
-                               nameFromDB=ds.child(userID).getValue(user.class).getName();
-                               addressFromDB=ds.child(userID).getValue(user.class).getAddress();
-                               phonenoFromDB=ds.child(userID).getValue(user.class).getPhoneno();
+                           user use=dataSnapshot.getValue(user.class);
 
-
-                           }
+                          balanceFromDB=use.getBalance();
+                          addressFromDB=use.getAddress();
+                          nameFromDB=use.getName();
+                          phonenoFromDB=use.getPhoneno();
 
 
 

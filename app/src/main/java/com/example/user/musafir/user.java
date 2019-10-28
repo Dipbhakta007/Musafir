@@ -20,7 +20,7 @@ public class user {
         Phoneno=m;
         Address=address;
 
-        Balance=1000;
+        Balance=0;
     }
 
     void setName(String name){

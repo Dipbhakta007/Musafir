@@ -70,6 +70,8 @@ public class Register extends AppCompatActivity {
                         Intent intent=getIntent();
                         final String incomingMobile=intent.getStringExtra("mobile");
 
+
+
                         databaseReference.child(incomingMobile).setValue(u).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -81,6 +83,8 @@ public class Register extends AppCompatActivity {
 
                             }
                         });
+
+
                     }
                 });
 
